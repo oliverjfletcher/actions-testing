@@ -35,7 +35,7 @@ jobs:
 
       - name: windows-set-output-1
         run: |
-          write-output ${{ steps.windows-test-0.outputs.test }}
+          write-output steps.windows-test-0.outputs.test
 
       - name: windows-github-output-0
         id: windows-test-1
@@ -44,7 +44,7 @@ jobs:
 
       - name: Windows-github-output-1
         run: |
-          write-output ${{ steps.windows-test-1.outputs.test }}
+          write-output steps.windows-test-1.outputs.test
 
 
 

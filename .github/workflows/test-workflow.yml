@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "Hello from ${{steps.ubuntu-test-1.outputs.test}}"
 
-      - name: Windows-github-output-1
+      - name: ubuntu-github-output-1
         run: |
           echo action_echo="disabled" >> $GITHUB_OUTPUT
           echo "::echo::on"
@@ -50,11 +50,11 @@ jobs:
         run: |
           write-output test="Windows Github Output Test 0" >> $GITHUB_OUTPUT
 
-      - name: Windows-github-output-1
+      - name: windows-github-output-1
         run: |
           write-output "Hello from ${{steps.windows-test-1.outputs.test}}"
 
-      - name: Windows-github-output-1
+      - name: windows-github-output-1
         run: |
           write-output action_echo="disabled" >> $GITHUB_OUTPUT
           write-output "::echo::on"

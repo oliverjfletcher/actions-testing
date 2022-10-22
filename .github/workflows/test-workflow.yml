@@ -13,7 +13,7 @@ jobs:
 
       - name: ubuntu-set-output-1
         run: |
-          echo "Hello from ${{steps.ubuntu-test-0.outputs.test}}
+          echo "Hello from ${{steps.ubuntu-test-0.outputs.test}}"
 
       - name: ubuntu-github-output-0
         id: ubuntu-test-1
@@ -22,7 +22,7 @@ jobs:
 
       - name: ubuntu-github-output-1
         run: |
-          echo "Hello from ${{steps.ubuntu-test-1.outputs.test}}
+          echo "Hello from ${{steps.ubuntu-test-1.outputs.test}}"
 
 
   windows-testing:
@@ -35,7 +35,7 @@ jobs:
 
       - name: windows-set-output-1
         run: |
-          write-output "Hello from ${{steps.windows-test-0.outputs.test}}
+          write-output "Hello from ${{steps.windows-test-0.outputs.test}}"
 
       - name: windows-github-output-0
         id: windows-test-1
@@ -44,7 +44,7 @@ jobs:
 
       - name: Windows-github-output-1
         run: |
-          write-output "Hello from ${{steps.windows-test-1.outputs.test}}
+          write-output "Hello from ${{steps.windows-test-1.outputs.test}}"
 
 
 

@@ -9,7 +9,7 @@ jobs:
       - name: ubuntu-set-output-0
         id: ubuntu-test-0
         run: |
-          echo ::set-output name=test::"Ubuntu Test set-output $(date +%d-%m-%Y)"
+          echo ::set-output name=test::"Ubuntu Test set-output"
 
       - name: ubuntu-set-output-1
         run: |
@@ -18,7 +18,7 @@ jobs:
       - name: ubuntu-github-output-0
         id: ubuntu-test-1
         run: |
-          echo "test:Ubuntu Github Output Test" >> $GITHUB_OUTPUT
+          echo test:"Ubuntu Github Output Test" >> $GITHUB_OUTPUT
 
       - name: ubuntu-github-output-1
         run: |
@@ -31,7 +31,7 @@ jobs:
       - name: windows-set-output-0
         id: windows-test-0
         run: |
-          write-output ::set-output name=test::"Windows Test set-output $(date +%d-%m-%Y)"
+          write-output ::set-output name=test::"Windows Test set-output"
 
       - name: windows-set-output-1
         run: |
@@ -40,7 +40,7 @@ jobs:
       - name: windows-github-output-0
         id: windows-test-1
         run: |
-          write-output "test:Windows Github Output Test" >> $GITHUB_OUTPUT
+          write-output test:"Windows Github Output Test" >> $GITHUB_OUTPUT
 
       - name: Windows-github-output-1
         run: |

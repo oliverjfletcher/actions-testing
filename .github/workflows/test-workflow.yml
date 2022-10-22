@@ -1,0 +1,16 @@
+name: "GitHub Actions - Testing"
+on:
+  push:
+
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testing
+        run: |
+          write-output "::set-output name=action_echo::disabled"
+          write-output echo "test=test" >> $GITHUB_STATE
+          echo output
+          echo $GITHUB_STATE
+          echo "Hello World!"
+

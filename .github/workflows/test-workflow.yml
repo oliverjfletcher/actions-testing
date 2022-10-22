@@ -41,7 +41,7 @@ jobs:
           echo action_echo="disabled" >> $GITHUB_OUTPUT
 
       - name: ubuntu-github-output-test-3
-        id: ubuntu-test-2
+        id: ubuntu-test-3
         run: echo "date=$(date +"%m-%d-%Y")" >> $GITHUB_OUTPUT
 
       - name: ubuntu-github-output-test-4
@@ -79,7 +79,7 @@ jobs:
           write-output action_echo="disabled" >> $GITHUB_OUTPUT
 
       - name: windows-github-output-test-3
-        id: windows-test-2
+        id: windows-test-3
         run: write-output "date=$(date +"%m-%d-%Y")" >> $GITHUB_OUTPUT
 
       - name: windows-github-output-test-4

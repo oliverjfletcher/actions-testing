@@ -13,7 +13,7 @@ jobs:
 
       - name: ubuntu-set-output-1
         run: |
-          echo ${{ steps.ubuntu-test-0.outputs.stdout }}
+          echo ${{ steps.ubuntu-test-0.outputs.test }}
 
       - name: ubuntu-github-output-0
         id: ubuntu-test-1
@@ -35,7 +35,7 @@ jobs:
 
       - name: windows-set-output-1
         run: |
-          write-output ${{ steps.windows-test-0.outputs.stdout }}
+          write-output ${{ steps.windows-test-0.outputs.test }}
 
       - name: windows-github-output-0
         id: windows-test-1

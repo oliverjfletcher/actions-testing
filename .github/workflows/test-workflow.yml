@@ -3,14 +3,49 @@ on:
   push:
 
 jobs:
-  Testing:
+  ubuntu-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ubuntu-set-output-0
+        id: ubuntu-test-0
+        run: |
+          echo ::set-output name=test::"Ubuntu Test set-output $(date +%d-%m-%Y)"
+
+      - name: ubuntu-set-output-1
+        run: |
+          echo ${{ steps.ubuntu-test-0.outputs.stdout }
+
+      - name: ubuntu-github-output-0
+        id: ubuntu-test-1
+        run: |
+          echo "test:"Ubuntu Test $(date +%d-%m-%Y)"" >> $GITHUB_OUTPUT
+
+      - name: ubuntu-github-output-1
+        run: |
+          echo ${{ steps.ubuntu-test-1.outputs.test }}"
+
+
+  windows-testing:
     runs-on: windows-latest
     steps:
-      - name: Testing
+      - name: windows-set-output-0
+        id: windows-test-0
         run: |
-          write-output "::set-output name=action_echo::disabled"
-          write-output echo "test=test" >> $GITHUB_STATE
-          echo output
-          echo $GITHUB_STATE
-          echo "Hello World!"
+          write-output ::set-output name=test::"Windows Test set-output $(date +%d-%m-%Y)"
+
+      - name: windows-set-output-1
+        run: |
+          write-output ${{ steps.windows-test-0.outputs.stdout }
+
+      - name: windows-github-output-0
+        id: windows-test-1
+        run: |
+          write-output "test:"Windows Test $(date +%d-%m-%Y)"" >> $GITHUB_OUTPUT
+
+      - name: Windows-github-output-1
+        run: |
+          write-output ${{ steps.windows-test-1.outputs.test }}"
+
+
+
 

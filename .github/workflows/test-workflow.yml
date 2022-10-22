@@ -6,25 +6,33 @@ jobs:
   ubuntu-testing:
     runs-on: ubuntu-latest
     steps:
-      - name: ubuntu-set-output-0
+      - name: ubuntu-set-output-test-0
         id: ubuntu-test-0
         run: |
           echo ::set-output name=test::"Ubuntu Test set-output"
 
-      - name: ubuntu-set-output-1
+      - name: ubuntu-set-output-test-1
         run: |
           echo "Hello from ${{steps.ubuntu-test-0.outputs.test}}"
 
-      - name: ubuntu-github-output-0
+      - name: ubuntu-set-output-test-2
+        run: |
+          echo "::set-output name=action_echo::disabled"
+          echo "::echo::on"
+          echo "::set-output name=action_echo::enabled"
+          echo "::echo::off"
+          echo "::set-output name=action_echo::disabled"
+
+      - name: ubuntu-github-output-test-0
         id: ubuntu-test-1
         run: |
           echo test="Ubuntu Github Output Test 0" >> $GITHUB_OUTPUT
 
-      - name: ubuntu-github-output-1
+      - name: ubuntu-github-output-test-1
         run: |
           echo "Hello from ${{steps.ubuntu-test-1.outputs.test}}"
 
-      - name: ubuntu-github-output-1
+      - name: ubuntu-github-output-test-2
         run: |
           echo action_echo="disabled" >> $GITHUB_OUTPUT
           echo "::echo::on"
@@ -32,29 +40,37 @@ jobs:
           echo "::echo::off"
           echo action_echo="disabled" >> $GITHUB_OUTPUT
 
+      - name: ubuntu-github-output-test-3
+        id: ubuntu-test-2
+        run: echo "date=$(date +"%m-%d-%Y")" >> $GITHUB_OUTPUT
+
+      - name: ubuntu-github-output-test-4
+        run: |
+          echo "The current date is ${{steps.ubuntu-test-3.outputs.date}}"
+
 
   windows-testing:
     runs-on: windows-latest
     steps:
-      - name: windows-set-output-0
+      - name: windows-set-output-test-0
         id: windows-test-0
         run: |
           write-output ::set-output name=test::"Windows Test set-output"
 
-      - name: windows-set-output-1
+      - name: windows-set-output-test-1
         run: |
           write-output "Hello from ${{steps.windows-test-0.outputs.test}}"
 
-      - name: windows-github-output-0
+      - name: windows-github-output-test-0
         id: windows-test-1
         run: |
           write-output test="Windows Github Output Test 0" >> $GITHUB_OUTPUT
 
-      - name: windows-github-output-1
+      - name: windows-github-output-test-1
         run: |
           write-output "Hello from ${{steps.windows-test-1.outputs.test}}"
 
-      - name: windows-github-output-1
+      - name: windows-github-output-test-2
         run: |
           write-output action_echo="disabled" >> $GITHUB_OUTPUT
           write-output "::echo::on"
@@ -62,5 +78,11 @@ jobs:
           write-output "::echo::off"
           write-output action_echo="disabled" >> $GITHUB_OUTPUT
 
+      - name: windows-github-output-test-3
+        id: windows-test-2
+        run: write-output "date=$(date +"%m-%d-%Y")" >> $GITHUB_OUTPUT
 
+      - name: windows-github-output-test-4
+        run: |
+          write-output "The current date is ${{steps.windows-test-3.outputs.date}}"
 

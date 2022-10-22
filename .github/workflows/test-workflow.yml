@@ -18,11 +18,11 @@ jobs:
       - name: ubuntu-github-output-0
         id: ubuntu-test-1
         run: |
-          echo test:"Ubuntu Github Output Test" >> $GITHUB_OUTPUT
+          echo test="Ubuntu Github Output Test" >> $GITHUB_OUTPUT
 
       - name: ubuntu-github-output-1
         run: |
-          echo ${{ steps.ubuntu-test-1.outputs.test }}
+          echo steps.ubuntu-test-1.outputs.test
 
 
   windows-testing:
@@ -40,7 +40,7 @@ jobs:
       - name: windows-github-output-0
         id: windows-test-1
         run: |
-          write-output test:"Windows Github Output Test" >> $GITHUB_OUTPUT
+          write-output test="Windows Github Output Test" >> $GITHUB_OUTPUT
 
       - name: Windows-github-output-1
         run: |
